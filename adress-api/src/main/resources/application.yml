@@ -1,0 +1,13 @@
+server:  port: 8080
+
+spring:
+  datasource:    hikari:      connection-timeout: 2000      maximum-pool-size: 5    url: ${HOST_DB}
+    driver-class-name: org.postgresql.Driver
+    username: ${USERNAME_DB}    password: ${PASSWORD_DB}  flyway:    schemas: address
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect    show-sql: true    hibernate:      ddl-auto: create    properties:      hibernate:        default_schema: address
+      
+geocoding:
+  url: https://maps.googleapis.com/maps/api/geocode/json
+  key: AIzaSyCj0cY2yEvVfYhAaTz3-P2MW-YRKmhz5Uw
+      

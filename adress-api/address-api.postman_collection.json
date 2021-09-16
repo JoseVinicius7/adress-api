@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "0da5e72a-66c6-4e0c-8d5a-260cca326100",
+		"name": "address-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"streetName\": \"Av Paulista\",\r\n\t\"number\": 1000,\r\n\t\"complement\": \"a\",\r\n\t\"neighbourdhood\": \"centro\",\r\n\t\"city\": \"São Paulo\",\r\n\t\"state\": \"São Paulo\",\r\n\t\"country\": \"brasil\",\r\n\t\"zipcode\": 12345000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/address/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"address",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"streetName\": \"Av Paulista\",\r\n\t\"number\": 1000,\r\n\t\"complement\": \"a\",\r\n\t\"neighbourdhood\": \"centro\",\r\n\t\"city\": \"São Paulo\",\r\n\t\"state\": \"São Paulo\",\r\n\t\"country\": \"brasil\",\r\n\t\"zipcode\": 12345000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/address",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/address",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/address/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"address",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/address/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"address",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Geocoding",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://maps.googleapis.com/maps/api/geocode/json?address=593 Arnoldo Lima, Eunapolis, BA&key=AIzaSyCj0cY2yEvVfYhAaTz3-P2MW-YRKmhz5Uw",
+					"protocol": "https",
+					"host": [
+						"maps",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"geocode",
+						"json"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "593 Arnoldo Lima, Eunapolis, BA"
+						},
+						{
+							"key": "key",
+							"value": "AIzaSyCj0cY2yEvVfYhAaTz3-P2MW-YRKmhz5Uw"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

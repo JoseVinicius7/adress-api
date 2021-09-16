@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - ambiente-network
+      
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "user@domain.com.br"
+      PGADMIN_DEFAULT_PASSWORD: "123456"
+    ports:
+      - "16543:80"
+    depends_on:
+      - db
+    networks:
+      - ambiente-network
+  address-api:
+    container_name: address-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: address-api:latest
+    environment:
+      PORT: 8080
+      HOST_DB: jdbc:postgresql://db:5432/addressdb
+      USERNAME_DB: postgres
+      PASSWORD_DB: postgres
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    networks:
+      - ambiente-network
+
+networks: 
+  ambiente-network:
+    driver: bridge
